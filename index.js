@@ -21,18 +21,18 @@ const client = new Client({
   ]
 });
 
-const STAFF_ROLE_ID = "1477465151656562748";
-const LOG_CHANNEL_ID = "1477467727387037859";
+const STAFF_ROLE_ID = "STAFF ROLE ID";
+const LOG_CHANNEL_ID = "LOG CHANNEL ID";
 
 const CATEGORY_MAP = {
-  ban: "1477469108235796520",
-  report: "1477469081794904115",
-  discord: "1477468976744370370",
-  bug: "1477468947732369448",
-  connect: "1477468916727939284"
+  ban: "BAN APPEAL CATEGORY ID",
+  report: "REPORT  CATEGORY ID",
+  discord: "DISCORD REPORT CATEGORY ID",
+  bug: "BUG REPORT CATEGORY ID",
+  connect: "CONNECT ISSUES CATEGORY ID"
 };
 
-const CLOSED_CATEGORY_ID = "1477468824633610361";
+const CLOSED_CATEGORY_ID = "CLOSED TICKETS CATEGORY ID";
 
 client.once("clientReady", () => {
   console.log(`✅ ${client.user.tag} 起動完了`);
@@ -44,7 +44,7 @@ client.on("interactionCreate", async (interaction) => {
       if (interaction.commandName === "ticketpanel") {
 
         const embed = new EmbedBuilder()
-          .setTitle("Natsuki Community | サポート")
+          .setTitle("Server | サポート")
           .setDescription(
             "チケットを作成して運営へお問い合わせください。\n" +
             "同じ内容で複数作成しないでください。"
@@ -53,14 +53,14 @@ client.on("interactionCreate", async (interaction) => {
           .setImage("attachment://ticket.png");
 
         const row1 = new ActionRowBuilder().addComponents(
-          new ButtonBuilder().setCustomId("ban").setLabel("BAN異議申し立て").setStyle(ButtonStyle.Danger),
-          new ButtonBuilder().setCustomId("report").setLabel("プレイヤー通報").setStyle(ButtonStyle.Primary)
+          new ButtonBuilder().setCustomId("ban").setLabel("📄 BAN異議申し立て").setStyle(ButtonStyle.Danger),
+          new ButtonBuilder().setCustomId("report").setLabel("⚠️ プレイヤー通報").setStyle(ButtonStyle.Primary)
         );
 
         const row2 = new ActionRowBuilder().addComponents(
-          new ButtonBuilder().setCustomId("discord").setLabel("Discord通報").setStyle(ButtonStyle.Primary),
-          new ButtonBuilder().setCustomId("bug").setLabel("バグ報告").setStyle(ButtonStyle.Secondary),
-          new ButtonBuilder().setCustomId("connect").setLabel("接続問題").setStyle(ButtonStyle.Secondary)
+          new ButtonBuilder().setCustomId("discord").setLabel("⚠️ Discord通報").setStyle(ButtonStyle.Primary),
+          new ButtonBuilder().setCustomId("bug").setLabel("🐞 バグ報告").setStyle(ButtonStyle.Secondary),
+          new ButtonBuilder().setCustomId("connect").setLabel("🔌 接続問題").setStyle(ButtonStyle.Secondary)
         );
 
         await interaction.reply({
@@ -74,11 +74,10 @@ client.on("interactionCreate", async (interaction) => {
     if (!interaction.isButton()) return;
 
     const guild = interaction.guild;
-
     if (interaction.customId === "close_ticket") {
 
       await interaction.reply({
-        content: "ログ保存してクローズします...",
+        content: "🗂 ログ保存してクローズします...",
         ephemeral: true
       });
 
@@ -92,7 +91,7 @@ client.on("interactionCreate", async (interaction) => {
 
       if (logChannel) {
         await logChannel.send({
-          content: `チケットログ: ${interaction.channel.name}`,
+          content: `📁 チケットログ: ${interaction.channel.name}`,
           files: [{ attachment: transcript, name: `${interaction.channel.name}.html` }]
         });
       }
@@ -107,11 +106,11 @@ client.on("interactionCreate", async (interaction) => {
         SendMessages: false
       });
 
-      await interaction.channel.send("このチケットはクローズされました。");
+      await interaction.channel.send("🔒 このチケットはクローズされました。");
 
       return;
     }
-
+    
     const categoryId = CATEGORY_MAP[interaction.customId];
     if (!categoryId) return;
 
@@ -126,7 +125,7 @@ client.on("interactionCreate", async (interaction) => {
 
     if (existing) {
       return interaction.reply({
-        content: "このカテゴリーですでにチケットがあります。",
+        content: "⚠️ このカテゴリーですでにチケットがあります。",
         ephemeral: true
       });
     }
@@ -134,7 +133,7 @@ client.on("interactionCreate", async (interaction) => {
     const staffRole = guild.roles.cache.get(STAFF_ROLE_ID);
     if (!staffRole) {
       return interaction.reply({
-        content: "運営ロールIDが無効です。",
+        content: "❌ 運営ロールIDが無効です。",
         ephemeral: true
       });
     }
@@ -166,7 +165,7 @@ client.on("interactionCreate", async (interaction) => {
     const closeRow = new ActionRowBuilder().addComponents(
       new ButtonBuilder()
         .setCustomId("close_ticket")
-        .setLabel("チケットを閉じる")
+        .setLabel("🔒 チケットを閉じる")
         .setStyle(ButtonStyle.Danger)
     );
 

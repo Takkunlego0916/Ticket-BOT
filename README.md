@@ -9,6 +9,7 @@
 ![Issues](https://img.shields.io/github/issues/Takkunlego0916/Ticket-BOT)
 ![Last Commit](https://img.shields.io/github/last-commit/Takkunlego0916/Ticket-BOT)
 
+
 # Discord Ticket Bot
 
 カテゴリ別にチケットを作成できる Discord Bot です。  

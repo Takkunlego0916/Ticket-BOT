@@ -1,3 +1,10 @@
+![Node](https://img.shields.io/badge/Node.js-20+-green?logo=node.js)
+![discord.js](https://img.shields.io/badge/discord.js-v14-5865F2?logo=discord)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+![Maintenance](https://img.shields.io/badge/Maintained-yes-success)
+![Deploy](https://img.shields.io/badge/Deploy-Render-8A2BE2)
+![Open Source](https://img.shields.io/badge/Open%20Source-Yes-brightgreen)
+
 # Discord Ticket Bot
 
 カテゴリ別にチケットを作成できる Discord Bot です。  

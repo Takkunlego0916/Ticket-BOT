@@ -2,8 +2,12 @@
 ![discord.js](https://img.shields.io/badge/discord.js-v14-5865F2?logo=discord)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 ![Maintenance](https://img.shields.io/badge/Maintained-yes-success)
-![Deploy](https://img.shields.io/badge/Deploy-Render-8A2BE2)
 ![Open Source](https://img.shields.io/badge/Open%20Source-Yes-brightgreen)
+
+![Stars](https://img.shields.io/github/stars/Takkunlego0916/Ticket-BOT?style=social)
+![Forks](https://img.shields.io/github/forks/Takkunlego0916/Ticket-BOT?style=social)
+![Issues](https://img.shields.io/github/issues/Takkunlego0916/Ticket-BOT)
+![Last Commit](https://img.shields.io/github/last-commit/Takkunlego0916/Ticket-BOT)
 
 # Discord Ticket Bot
 
